@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Know about me 🙂</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- ══ NAVBAR ══ -->
+  <nav class="navbar">
+    <span class="nav-logo">MRM</span>
+    <ul class="nav-links">
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#experience">EXPERIENCE</a></li>
+      <li><a href="#education">EDUCATION</a></li>
+      <li><a href="#skills">SKILLS</a></li>
+      <li><a href="#profiles">PROFILES</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" onclick="toggleMenu()">ABOUT</a>
+    <a href="#experience" onclick="toggleMenu()">EXPERIENCE</a>
+    <a href="#education" onclick="toggleMenu()">EDUCATION</a>
+    <a href="#skills" onclick="toggleMenu()">SKILLS</a>
+    <a href="#profiles" onclick="toggleMenu()">PROFILES</a>
+    <a href="#contact" onclick="toggleMenu()">CONTACT</a>
+  </div>
+
+  <!-- ══ HERO ══ -->
+  <section class="hero">
+    <div class="hero-inner">
+      <img src="profile.jpg.jpeg" alt="Md. Minhazur Rahman Mahim" class="hero-photo">
+      <div class="hero-badge">● OPEN TO OPPORTUNITIES</div>
+      <h1 class="hero-name">Md. Minhazur Rahman<br><span class="hero-lastname">Mahim</span></h1>
+      <p class="hero-roles">Multidisciplinary Designer &nbsp;·&nbsp; Programmer &nbsp;·&nbsp; Problem Solver<br>
+        Aspiring Cyber Security Expert</p>
+      <p class="hero-location">📍 Barishal, Bangladesh</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">Get In Touch</a>
+        <a href="https://github.com/minhazurmollik-eng" target="_blank" class="btn-outline">GitHub Portfolio</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ ABOUT ══ -->
+  <section class="sec" id="about">
+    <div class="sec-inner">
+      <p class="sec-label"><span class="cyan">01</span> / ABOUT</p>
+      <h2 class="sec-heading">Who I am</h2>
+      <div class="about-grid">
+        <div class="about-card">
+          <p class="card-tag cyan">BACKGROUND</p>
+          <p>Diploma student in Computer Science & Technology at Infra Polytechnic Institute, Barishal. Passionate about design, programming, and building things that look great and work perfectly.</p>
+        </div>
+        <div class="about-card">
+          <p class="card-tag cyan">GRAPHIC DESIGN</p>
+          <p>Core expertise in Graphic Design — creating visually stunning works using Adobe Photoshop, Illustrator, and Figma. I bridge the gap between aesthetics and logic.</p>
+        </div>
+        <div class="about-card">
+          <p class="card-tag cyan">PROGRAMMING</p>
+          <p>Strong foundation in Python and C. I build data-driven visuals, automate design workflows, and bring a unique problem-solving perspective to every project.</p>
+        </div>
+        <div class="about-card">
+          <p class="card-tag cyan">VISION</p>
+          <p>Whether it's automating design workflows or building technically sound systems, I create solutions that are both visually stunning and functionally solid.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ EXPERIENCE ══ -->
+  <section class="sec" id="experience">
+    <div class="sec-inner">
+      <p class="sec-label"><span class="cyan">02</span> / EXPERIENCE</p>
+      <h2 class="sec-heading">Where I've worked</h2>
+      <div class="exp-list">
+        <div class="exp-card">
+          <div class="exp-top">
+            <div>
+              <h3 class="exp-title">Graphic Designer &amp; Programmer</h3>
+              <p class="exp-sub">Freelance · Remote</p>
+            </div>
+            <span class="exp-badge">2024 – Present</span>
+          </div>
+          <p class="exp-desc">Designing logos, banners, and visual content for clients. Developing Python scripts to automate design workflows and building data-driven visuals for various projects.</p>
+        </div>
+        <div class="exp-card">
+          <div class="exp-top">
+            <div>
+              <h3 class="exp-title">Student Developer</h3>
+              <p class="exp-sub">Infra Polytechnic Institute · Barishal</p>
+            </div>
+            <span class="exp-badge">Current</span>
+          </div>
+          <p class="exp-desc">Actively learning and applying Computer Science concepts, building personal projects that combine design and programming to solve real-world problems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ EDUCATION ══ -->
+  <section class="sec" id="education">
+    <div class="sec-inner">
+      <p class="sec-label"><span class="cyan">03</span> / EDUCATION</p>
+      <h2 class="sec-heading">Academic journey</h2>
+      <div class="edu-list">
+        <div class="edu-card">
+          <span class="edu-icon">🎓</span>
+          <div>
+            <h3 class="edu-title">Diploma in Engineering — Computer Science &amp; Technology</h3>
+            <p class="edu-inst">Infra Polytechnic Institute, Barishal.</p>
+            <p class="edu-date cyan">Sep 2025 – Jul 2029</p>
+          </div>
+        </div>
+        <div class="edu-card">
+          <span class="edu-icon">📘</span>
+          <div>
+            <h3 class="edu-title">Secondary School Certificate (SSC)</h3>
+            <p class="edu-inst">Barishal Govt. Model School &amp; College, Barishal Board.</p>
+            <p class="edu-date cyan">Passed 2025</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SKILLS ══ -->
+  <section class="sec" id="skills">
+    <div class="sec-inner">
+      <p class="sec-label"><span class="cyan">04</span> / SKILLS</p>
+      <h2 class="sec-heading">What I work with</h2>
+      <div class="skills-wrap">
+        <span class="skill-pill">Python</span>
+        <span class="skill-pill">C</span>
+        <span class="skill-pill">Graphic Design</span>
+        <span class="skill-pill">Adobe Photoshop</span>
+        <span class="skill-pill">Adobe Illustrator</span>
+        <span class="skill-pill">Figma</span>
+        <span class="skill-pill">HTML</span>
+        <span class="skill-pill">Data Visualization</span>
+        <span class="skill-pill">Design Automation</span>
+        <span class="skill-pill">Problem Solving</span>
+        <span class="skill-pill">Creative Thinking</span>
+        <span class="skill-pill">Team Collaboration</span>
+        <span class="skill-pill">Communication</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PROFILES ══ -->
+  <section class="sec" id="profiles">
+    <div class="sec-inner">
+      <p class="sec-label"><span class="cyan">05</span> / PROFILES</p>
+      <h2 class="sec-heading">Find me online</h2>
+      <div class="profiles-grid">
+        <a href="https://m.me/minhazur434" target="_blank" class="profile-card">
+          <span class="profile-icon">💬</span>
+          <div>
+            <p class="profile-name">Messenger</p>
+          </div>
+        </a>
+        <a href="https://wa.me/+8801716435434" target="_blank" class="profile-card">
+          <span class="profile-icon">📱</span>
+          <div>
+            <p class="profile-name">WhatsApp</p>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/minhazur-mollik-824344384" target="_blank" class="profile-card">
+          <span class="profile-icon">🔗</span>
+          <div>
+            <p class="profile-name">LinkedIn</p>
+          </div>
+        </a>
+        <a href="https://github.com/minhazurmollik-eng" target="_blank" class="profile-card">
+          <span class="profile-icon">🐙</span>
+          <div>
+            <p class="profile-name">GitHub</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONTACT ══ -->
+  <section class="sec" id="contact">
+    <div class="sec-inner">
+      <p class="sec-label"><span class="cyan">06</span> / CONTACT</p>
+      <h2 class="sec-heading">Let's connect</h2>
+      <div class="contact-card">
+        <div class="contact-row">
+          <span>📱</span>
+          <a href="https://wa.me/+8801716435434" target="_blank" class="cyan">+880 1716-435434</a>
+        </div>
+        <div class="contact-row">
+          <span>📍</span>
+          <a href="https://maps.app.goo.gl/7ZnjebWmDBgewzxg7?g_st=ac" target="_blank" class="cyan">Barishal, Bangladesh</a>
+        </div>
+        <div class="contact-row">
+          <span>🔗</span>
+          <a href="https://www.linkedin.com/in/minhazur-mollik-824344384" target="_blank" class="cyan">LinkedIn Profile</a>
+        </div>
+        <div class="contact-row">
+          <span>🐙</span>
+          <a href="https://github.com/minhazurmollik-eng" target="_blank" class="cyan">GitHub Portfolio</a>
+        </div>
+        <div class="contact-row">
+          <span>📂</span>
+          <a href="https://drive.google.com/drive/folders/1ZLXXA1awF2Zh3TMBBa1FOwydDM_SZhM4?usp=drive_link" target="_blank" class="cyan">My Work (Google Drive)</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <div class="footer-bottom">
+   <footer class="footer">
+        <p>Designed &amp; Built by <span><b>Minhazur Mollik</b></span></p>
+        <p class="footer-copy">© 2021 — All Rights Reserved</p>
+    </footer>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    const COLORS = ['#00e5ff','#4dabf7','#845ef7','#ffffff'];
+    let W,H,particles=[];
+    function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
+    class P{
+      constructor(){this.reset(true);}
+      reset(init=false){
+        this.x=Math.random()*W;this.y=init?Math.random()*H:H+6;
+        this.r=Math.random()*1.4+0.3;
+        this.sy=-(Math.random()*.35+.1);this.sx=(Math.random()-.5)*.2;
+        this.a=Math.random()*.5+.15;this.ad=(Math.random()>.5?1:-1)*.003;
+        this.c=COLORS[Math.floor(Math.random()*COLORS.length)];
+      }
+      update(){this.y+=this.sy;this.x+=this.sx;this.a+=this.ad;if(this.a>.8||this.a<.08)this.ad*=-1;if(this.y<-6)this.reset();}
+      draw(){ctx.save();ctx.globalAlpha=this.a;ctx.fillStyle=this.c;ctx.shadowColor=this.c;ctx.shadowBlur=this.r*3;ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fill();ctx.restore();}
+    }
+    function init(){resize();particles=[];let c=Math.floor(W*H/9000);for(let i=0;i<c;i++)particles.push(new P());}
+    function loop(){ctx.clearRect(0,0,W,H);particles.forEach(p=>{p.update();p.draw();});requestAnimationFrame(loop);}
+    window.addEventListener('resize',init);init();loop();
+
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'});});
+    });
+
+    function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
+  </script>
+</body>
+</html>
