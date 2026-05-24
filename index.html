@@ -193,25 +193,40 @@
       <p class="sec-label"><span class="cyan">06</span> / CONTACT</p>
       <h2 class="sec-heading">Let's connect</h2>
       <div class="contact-card">
-        <div class="contact-row">
-          <span>📱</span>
-          <a href="https://wa.me/+8801716435434" target="_blank" class="cyan">+880 1716-435434</a>
+        <div class="contact-left">
+          <div class="contact-row">
+            <span>📱</span>
+            <a href="https://wa.me/+8801716435434" target="_blank" class="cyan">+880 1716-435434</a>
+          </div>
+          <div class="contact-row">
+            <span>📍</span>
+            <a href="https://maps.app.goo.gl/7ZnjebWmDBgewzxg7?g_st=ac" target="_blank" class="cyan">Barishal, Bangladesh</a> 
+          </div>
+          <div class="contact-row">
+            <span>🔗</span>
+            <a href="https://www.linkedin.com/in/minhazur-mollik-824344384" target="_blank" class="cyan">LinkedIn Profile</a>
+          </div>
+          <div class="contact-row">
+            <span>🐙</span>
+            <a href="https://github.com/minhazurmollik-eng" target="_blank" class="cyan">GitHub Portfolio</a>
+          </div>
+          <div class="contact-row">
+            <span>📂</span>
+            <a href="https://drive.google.com/drive/folders/1ZLXXA1awF2Zh3TMBBa1FOwydDM_SZhM4?usp=drive_link" target="_blank" class="cyan">My Work (Google Drive)</a>
+          </div>
         </div>
-        <div class="contact-row">
-          <span>📍</span>
-          <a href="https://maps.app.goo.gl/7ZnjebWmDBgewzxg7?g_st=ac" target="_blank" class="cyan">Barishal, Bangladesh</a>
-        </div>
-        <div class="contact-row">
-          <span>🔗</span>
-          <a href="https://www.linkedin.com/in/minhazur-mollik-824344384" target="_blank" class="cyan">LinkedIn Profile</a>
-        </div>
-        <div class="contact-row">
-          <span>🐙</span>
-          <a href="https://github.com/minhazurmollik-eng" target="_blank" class="cyan">GitHub Portfolio</a>
-        </div>
-        <div class="contact-row">
-          <span>📂</span>
-          <a href="https://drive.google.com/drive/folders/1ZLXXA1awF2Zh3TMBBa1FOwydDM_SZhM4?usp=drive_link" target="_blank" class="cyan">My Work (Google Drive)</a>
+
+        <!-- QR Code — -->
+        <div class="contact-qr">
+          <p class="qr-label">Scan my work</p>
+          <a href="https://drive.google.com/drive/folders/1ZLXXA1awF2Zh3TMBBa1FOwydDM_SZhM4?usp=drive_link"
+             target="_blank" class="qr-link">
+            <div class="qr-wrapper">
+              <img src="scan-me.jpg" alt="QR Code" class="qr-img">
+              <div class="qr-overlay"></div>
+            </div>
+          </a>
+          <p class="qr-hint">click to open</p>
         </div>
       </div>
     </div>
@@ -220,7 +235,7 @@
   <!-- ══ FOOTER ══ -->
   <div class="footer-bottom">
    <footer class="footer">
-        <p>Designed &amp; Built by <span><b>Minhazur Mollik</b></span></p>
+        <p>Designed &amp; Built by <span class="cyan-text">Minhazur Mollik</span></p>
         <p class="footer-copy">© 2021 — All Rights Reserved</p>
     </footer>
   </div>
@@ -229,23 +244,92 @@
     const canvas = document.getElementById('particle-canvas');
     const ctx = canvas.getContext('2d');
     const COLORS = ['#00e5ff','#4dabf7','#845ef7','#ffffff'];
-    let W,H,particles=[];
-    function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
+    let W,H,particles=[],cardEls=[];
+
+    function resize(){
+      W=canvas.width=window.innerWidth;
+      H=canvas.height=window.innerHeight;
+    }
+
+    function collectEls(){
+      const sel = '.about-card,.exp-card,.edu-card,.profile-card,.contact-card,.skill-pill,.btn-primary,.btn-outline,.hero-badge';
+      cardEls = [...document.querySelectorAll(sel)];
+    }
+
+    function checkProximity(){
+      cardEls.forEach(el=>{
+        const r = el.getBoundingClientRect();
+        const margin = 40;
+        let closest = Infinity;
+
+        for(const p of particles){
+          const cx = r.left + r.width/2;
+          const cy = r.top + r.height/2;
+          const dist = Math.sqrt((p.x-cx)**2 + (p.y-cy)**2);
+          if(dist < closest) closest = dist;
+        }
+
+        const threshold = Math.max(r.width, r.height)/2 + margin;
+        if(closest < threshold){
+          const intensity = 1 - (closest / threshold);
+          const glow = Math.round(intensity * 22);
+          const opacity = (intensity * 0.45).toFixed(2);
+          el.style.boxShadow = `0 0 ${glow}px rgba(0,229,255,${opacity}), 0 0 ${glow*2}px rgba(0,229,255,${opacity*0.4}), inset 0 1px 0 rgba(255,255,255,${(intensity*0.2).toFixed(2)})`;
+          el.style.borderColor = `rgba(0,229,255,${(intensity*0.55).toFixed(2)})`;
+        } else {
+          el.style.boxShadow = '';
+          el.style.borderColor = '';
+        }
+      });
+    }
+
     class P{
       constructor(){this.reset(true);}
       reset(init=false){
         this.x=Math.random()*W;this.y=init?Math.random()*H:H+6;
-        this.r=Math.random()*1.4+0.3;
+        this.r=Math.random()*2.2+0.6;
         this.sy=-(Math.random()*.35+.1);this.sx=(Math.random()-.5)*.2;
-        this.a=Math.random()*.5+.15;this.ad=(Math.random()>.5?1:-1)*.003;
+        this.a=Math.random()*.5+.4;this.ad=(Math.random()>.5?1:-1)*.004;
         this.c=COLORS[Math.floor(Math.random()*COLORS.length)];
       }
-      update(){this.y+=this.sy;this.x+=this.sx;this.a+=this.ad;if(this.a>.8||this.a<.08)this.ad*=-1;if(this.y<-6)this.reset();}
-      draw(){ctx.save();ctx.globalAlpha=this.a;ctx.fillStyle=this.c;ctx.shadowColor=this.c;ctx.shadowBlur=this.r*3;ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fill();ctx.restore();}
+      update(){
+        this.y+=this.sy;this.x+=this.sx;this.a+=this.ad;
+        if(this.a>.95||this.a<.25)this.ad*=-1;
+        if(this.y<-6)this.reset();
+      }
+      draw(){
+        ctx.save();
+        ctx.globalAlpha=this.a;
+        ctx.fillStyle=this.c;
+        ctx.shadowColor=this.c;
+        ctx.shadowBlur=this.r*7;
+        ctx.beginPath();
+        ctx.arc(this.x,this.y,this.r,0,Math.PI*2);
+        ctx.fill();
+        ctx.restore();
+      }
     }
-    function init(){resize();particles=[];let c=Math.floor(W*H/9000);for(let i=0;i<c;i++)particles.push(new P());}
-    function loop(){ctx.clearRect(0,0,W,H);particles.forEach(p=>{p.update();p.draw();});requestAnimationFrame(loop);}
-    window.addEventListener('resize',init);init();loop();
+
+    function init(){
+      resize();
+      collectEls();
+      particles=[];
+      let c=Math.floor(W*H/9000);
+      for(let i=0;i<c;i++) particles.push(new P());
+    }
+
+    let frame=0;
+    function loop(){
+      ctx.clearRect(0,0,W,H);
+      particles.forEach(p=>{p.update();p.draw();});
+      // check proximity every 3 frames for performance
+      if(frame++%3===0) checkProximity();
+      requestAnimationFrame(loop);
+    }
+
+    window.addEventListener('resize',init);
+    window.addEventListener('scroll', collectEls);
+    init(); loop();
 
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'});});
