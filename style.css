@@ -423,6 +423,11 @@ body::before{
   font-family:var(--mono);
 }
 
+.footer .cyan-text{
+  color:var(--cyan);
+  font-weight: 600;
+}
+
 /* ════════ MOBILE ════════ */
 @media(max-width:768px){
   .navbar{padding:.85rem 1.2rem;}
