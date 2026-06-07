@@ -47,7 +47,7 @@ body::before{
 }
 .nav-logo{
   font-family:var(--mono);
-  font-size:20px;font-weight:600;
+  font-size:20px;font-weight:600; font-style:italic;
   letter-spacing:5px;
   background: linear-gradient(135deg, #ffffff 0%, #00e5ff 50%, #845ef7 100%);
   -webkit-background-clip: text;
